@@ -28,7 +28,6 @@ roslaunch serl_franka_controllers impedance.launch robot_ip:=<RobotIP> load_grip
 ```
 Replace <RobotIP> with the IP address of your Franka robot. The load_gripper argument is a boolean value (true or false) depending on whether you have a gripper attached.
 
-### Interacting with the controller
 Compliance parameters for the controller can be adjusted in an interactive GUI by running `rosrun rqt_reconfigure rqt_reconfigure`. This can also be achieved in Python code as demonstrated in the example section.
 
 ### Joint Position Controller
