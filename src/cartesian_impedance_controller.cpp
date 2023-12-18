@@ -1,5 +1,3 @@
-// Copyright (c) 2017 Franka Emika GmbH
-// Use of this source code is governed by the Apache-2.0 license, see LICENSE
 #include <serl_franka_controllers/cartesian_impedance_controller.h>
 
 #include <cmath>
@@ -20,7 +18,6 @@ bool CartesianImpedanceController::init(hardware_interface::RobotHW* robot_hw,
   std::vector<double> cartesian_stiffness_vector;
   std::vector<double> cartesian_damping_vector;
   publisher_franka_jacobian_.init(node_handle, "franka_jacobian", 1);
-  publisher_franka_debug_.init(node_handle, "franka_debug", 1);
 
   sub_equilibrium_pose_ = node_handle.subscribe(
       "equilibrium_pose", 20, &CartesianImpedanceController::equilibriumPoseCallback, this,
@@ -136,6 +133,7 @@ void CartesianImpedanceController::update(const ros::Time& time,
   std::array<double, 7> coriolis_array = model_handle_->getCoriolis();
   jacobian_array =
       model_handle_->getZeroJacobian(franka::Frame::kEndEffector);
+  publishZeroJacobian(time);
   Eigen::Map<Eigen::Matrix<double, 7, 1>> coriolis(coriolis_array.data());
   Eigen::Map<Eigen::Matrix<double, 6, 7>> jacobian(jacobian_array.data());
   Eigen::Map<Eigen::Matrix<double, 7, 1>> q(robot_state.q.data());
@@ -152,7 +150,6 @@ void CartesianImpedanceController::update(const ros::Time& time,
   for (int i = 0; i < 3; i++) {
     error(i) = std::min(std::max(error(i), translational_clip_min(i)), translational_clip_max(i));
   }
-
 
   // orientation error
   if (orientation_d_.coeffs().dot(orientation.coeffs()) < 0.0) {

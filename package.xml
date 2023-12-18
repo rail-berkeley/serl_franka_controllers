@@ -1,15 +1,14 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>serl_franka_controllers</name>
-  <version>0.8.0</version>
-  <description>serl_franka_controllers provides example code for controlling Franka Emika research robots with ros_control</description>
-  <maintainer email="support@franka.de">Franka Emika GmbH</maintainer>
+  <version>0.1.0</version>
+  <description>serl_franka_controllers provides a compliant yet accurate Cartesian impedence controller for controlling Franka Emika research robots that can be used in online reinforcement learning applications </description>
+  <maintainer email="xuc@berkeley.edu">Charles Xu</maintainer>
   <license>Apache 2.0</license>
 
-  <url type="website">http://wiki.ros.org/franka_example_controllers</url>
-  <url type="repository">https://github.com/frankaemika/franka_ros</url>
-  <url type="bugtracker">https://github.com/frankaemika/franka_ros/issues</url>
-  <author>Franka Emika GmbH</author>
+  <url type="website">https://serl-robot.github.io/</url>
+  <url type="repository">https://github.com/rail-berkeley/serl_franka_controller/</url>
+  <author>Jianlan Luo, Charles Xu</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 

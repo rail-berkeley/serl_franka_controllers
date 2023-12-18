@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.4)
 project(serl_franka_controllers)
 
 set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(catkin REQUIRED COMPONENTS
@@ -25,6 +25,7 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(Eigen3 REQUIRED)
 find_package(Franka 0.7.0 REQUIRED)
 
+add_message_files(FILES ZeroJacobian.msg)
 generate_messages()
 
 generate_dynamic_reconfigure_options(

@@ -20,7 +20,7 @@
 #include <franka_hw/franka_model_interface.h>
 #include <franka_hw/franka_state_interface.h>
 #include <realtime_tools/realtime_publisher.h>
-#include <franka_msgs/ZeroJacobian.h>
+#include <serl_franka_controllers/ZeroJacobian.h>
 #include <franka_msgs/FrankaDebug.h>
 
 namespace serl_franka_controllers {
@@ -93,9 +93,8 @@ class CartesianImpedanceController : public controller_interface::MultiInterface
   void complianceParamCallback(serl_franka_controllers::compliance_paramConfig& config,
                                uint32_t level);
   void publishZeroJacobian(const ros::Time& time);
-  realtime_tools::RealtimePublisher<franka_msgs::ZeroJacobian> publisher_franka_jacobian_;
+  realtime_tools::RealtimePublisher<serl_franka_controllers::ZeroJacobian> publisher_franka_jacobian_;
   void publishDebug(const ros::Time& time);
-  realtime_tools::RealtimePublisher<franka_msgs::FrankaDebug> publisher_franka_debug_;
   // Equilibrium pose subscriber
   ros::Subscriber sub_equilibrium_pose_;
   void equilibriumPoseCallback(const geometry_msgs::PoseStampedConstPtr& msg);
