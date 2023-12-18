@@ -1,4 +1,4 @@
-# serl_franka_controller
+# SERL Franka Controller
 SERL controller package for Franka Emika Robot.
 
 serl_franka_controller is a ROS package designed to control Franka Emika Robot through `libfranka` and `franka_ros`. This package provides a compliant yet accurate Cartesian Impedence Controller for safe online reinforcement learning algorithms, as well as a Joint Position Controller for resetting arm.
@@ -7,7 +7,7 @@ serl_franka_controller is a ROS package designed to control Franka Emika Robot t
 
 ### Prerequisites
 - ROS Noetic
-- Installation of `libfranka>=0.8.0` and `franka_ros>0.8.0` according to the [Franka FCI Documentation](https://frankaemika.github.io/docs/installation_linux.html)
+- Installation of `libfranka>=0.8.0` and `franka_ros>=0.8.0` according to the [Franka FCI Documentation](https://frankaemika.github.io/docs/installation_linux.html)
 
 ### Installing from Source
 
@@ -44,8 +44,8 @@ Here, you also need to replace <RobotIP> with the actual IP address and specify 
 ## rospy Example
 We include a `requirements.txt` and python script to show one way of interacting with the controller. This script shows how to adjust the reference limiting values and how to send robot commands through ROS Topics and `dynamic_reconfigure`. To use this, run
 ```bash
-conda create -n franka_controller python=3.8
-conda activate franka_controller
+conda create -n serl_controller python=3.8
+conda activate serl_controller
 pip install -r requirements.txt
 python test/test.py --robot_ip=ROBOT_IP
 ```
