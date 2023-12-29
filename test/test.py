@@ -16,15 +16,14 @@ flags.DEFINE_string("load_gripper", 'false', "Whether or not to load the gripper
 
 def main(_):
     try:
-
-        input("\033[33mPress enter to start roscore and the Impedance controller.\033[0m")
+        input("\033[33mPress enter to start roscore and the impedance controller.\033[0m")
         try:
             roscore = subprocess.Popen('roscore')
             time.sleep(1)
         except:
             pass
 
-        impedence_controller = subprocess.Popen(['roslaunch', 'serl_franka_controllers', 'Impedance.launch',
+        impedence_controller = subprocess.Popen(['roslaunch', 'serl_franka_controllers', 'impedance.launch',
                                                 f'robot_ip:={FLAGS.robot_ip}', f'load_gripper:={FLAGS.load_gripper}'],
                                                 stdout=subprocess.PIPE)
 
