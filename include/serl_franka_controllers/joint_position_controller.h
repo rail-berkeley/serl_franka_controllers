@@ -1,5 +1,5 @@
-// Copyright (c) 2017 Franka Emika GmbH
-// Use of this source code is governed by the Apache-2.0 license, see LICENSE
+// Refered to https://github.com/frankaemika/franka_ros/tree/develop/franka_example_controllers
+
 #pragma once
 
 #include <array>

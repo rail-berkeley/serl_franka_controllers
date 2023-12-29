@@ -1,7 +1,10 @@
 # SERL Franka Controller
-SERL controller package for Franka Emika Robot.
 
-serl_franka_controller is a ROS package designed to control Franka Emika Robot through `libfranka` and `franka_ros`. This package provides a compliant yet accurate Cartesian Impedence Controller for safe online reinforcement learning algorithms, as well as a Joint Position Controller for resetting arm. 
+> Robot controller used in SERL (A Software Suite for Sample-Efficient Robotic Reinforcement Learning)
+
+Serl Website and Paper: https://serl-robot.github.io/
+
+`serl_franka_controller` is a ROS package designed to control Franka Emika Robot through `libfranka` and `franka_ros`. This package provides a compliant yet accurate Cartesian Impedence Controller for safe online reinforcement learning algorithms, as well as a Joint Position Controller for resetting arm. 
 
 Compliance and accuracy is achieved at the same time by limiting the reference point of the impedence controller to be within a certain distance from the current pose in the realtime loop. This way, a high gain can be used for accuracy without excess force when in contact.
 
@@ -14,6 +17,9 @@ Compliance and accuracy is achieved at the same time by limiting the reference p
 ### Prerequisites
 - ROS Noetic
 - Installation of `libfranka>=0.8.0` and `franka_ros>=0.8.0` according to the [Franka FCI Documentation](https://frankaemika.github.io/docs/installation_linux.html)
+  ```bash
+  sudo apt install ros-noetic-libfranka ros-noetic-franka-ros
+  ```
 
 ### Installing from Source
 
@@ -22,7 +28,7 @@ Compliance and accuracy is achieved at the same time by limiting the reference p
    cd ~/catkin_ws/src
    git clone git@github.com:rail-berkeley/serl_franka_controller.git
    cd ~/catkin_ws
-   catkin_make -DFranka_DIR:PATH=/path/to/libfranka/build
+   catkin_make --pkg serl_franka_controller
    source ~/catkin_ws/devel/setup.bash
    ```
 
@@ -43,7 +49,7 @@ For resetting or moving the robot to a specific joint position, launch the joint
 rosparam set /target_joint_positions '[q1, q2, q3, q4, q5, q6, q7]'
 roslaunch serl_franka_controllers joint.launch robot_ip:=<RobotIP> load_gripper:=<true/false>
 ```
-Here, you also need to replace <RobotIP> with the actual IP address and specify the load_gripper option. Then replace [q1, q2, q3, q4, q5, q6, q7] with the desired joint positions.
+Here, you also need to replace <RobotIP> with the actual IP address and specify the load_gripper option. Then replace `[q1, q2, q3, q4, q5, q6, q7]` with the desired joint positions.
 
 
 ## rospy Example
