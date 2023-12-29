@@ -13,24 +13,24 @@ FLAGS = flags.FLAGS
 flags.DEFINE_string("robot_ip", None, "IP address of the robot.", required=True)
 flags.DEFINE_string("load_gripper", 'false', "Whether or not to load the gripper.")
 
+
 def main(_):
     try:
 
-        input("\033[33mPress enter to start roscore and the impedence controller.\033[0m")
+        input("\033[33mPress enter to start roscore and the Impedance controller.\033[0m")
         try:
             roscore = subprocess.Popen('roscore')
             time.sleep(1)
         except:
             pass
 
-        impedence_controller = subprocess.Popen(['roslaunch', 'serl_franka_controllers', 'impedence.launch', 
+        impedence_controller = subprocess.Popen(['roslaunch', 'serl_franka_controllers', 'Impedance.launch',
                                                 f'robot_ip:={FLAGS.robot_ip}', f'load_gripper:={FLAGS.load_gripper}'],
                                                 stdout=subprocess.PIPE)
 
-        eepub = rospy.Publisher('/cartesian_impedance_controller/equilibrium_pose', geom_msg.PoseStamped ,queue_size=10)
-        rospy.init_node('franka_control_api' )
+        eepub = rospy.Publisher('/cartesian_impedance_controller/equilibrium_pose', geom_msg.PoseStamped, queue_size=10)
+        rospy.init_node('franka_control_api')
         client = Client("/cartesian_impedance_controllerdynamic_reconfigure_compliance_param_node")
-
 
         # Reset the arm
         msg = geom_msg.PoseStamped()
@@ -43,12 +43,11 @@ def main(_):
         eepub.publish(msg)
         time.sleep(1)
 
-
         time.sleep(1)
         # Setting the reference limiting values through ros dynamic reconfigure
         for direction in ['x', 'y', 'z', 'neg_x', 'neg_y', 'neg_z']:
             client.update_configuration({"translational_clip_" + direction: 0.005})
-            client.update_configuration({"rotational_clip_"+ direction: 0.04})
+            client.update_configuration({"rotational_clip_" + direction: 0.04})
         time.sleep(1)
         print("\nNew reference limiting values has been set")
 
@@ -77,7 +76,6 @@ def main(_):
             eepub.publish(msg)
             time.sleep(0.1)
 
-
         input("\033[33m\n \nPress enter to exit the test and stop the controller.\033[0m")
         impedence_controller.terminate()
         roscore.terminate()
@@ -87,6 +85,7 @@ def main(_):
         impedence_controller.terminate()
         roscore.terminate()
         sys.exit()
+
 
 if __name__ == "__main__":
     app.run(main)

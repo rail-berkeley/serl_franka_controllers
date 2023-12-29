@@ -146,7 +146,8 @@ void CartesianImpedanceController::update(const ros::Time& time,
   Eigen::Map<Eigen::Matrix<double, 7, 1>> tau_J_d(  // NOLINT (readability-identifier-naming)
       robot_state.tau_J_d.data());
   Eigen::Affine3d transform(Eigen::Matrix4d::Map(robot_state.O_T_EE.data()));
-  Eigen::Vector3d position << transform.translation();
+  Eigen::Vector3d position;
+  position << transform.translation();
   Eigen::Quaterniond orientation(transform.linear());
 
   // compute error to desired pose

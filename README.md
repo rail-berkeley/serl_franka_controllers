@@ -6,7 +6,7 @@ Serl Website and Paper: https://serl-robot.github.io/
 
 `serl_franka_controller` is a ROS package designed to control Franka Emika Robot through `libfranka` and `franka_ros`. This package provides a compliant yet accurate Cartesian Impedence Controller for safe online reinforcement learning algorithms, as well as a Joint Position Controller for resetting arm. 
 
-Compliance and accuracy is achieved at the same time by limiting the reference point of the impedence controller to be within a certain distance from the current pose in the realtime loop. This way, a high gain can be used for accuracy without excess force when in contact.
+Compliance and accuracy is achieved at the same time by limiting the reference point of the Impedance controller to be within a certain distance from the current pose in the realtime loop. This way, a high gain can be used for accuracy without excess force when in contact.
 
 ![Image](controller_plot.jpg)
 
