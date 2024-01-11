@@ -1,5 +1,5 @@
-// Copyright (c) 2017 Franka Emika GmbH
-// Use of this source code is governed by the Apache-2.0 license, see LICENSE
+// Refered to https://github.com/frankaemika/franka_ros/tree/develop/franka_example_controllers
+
 #pragma once
 
 #include <memory>
@@ -21,10 +21,8 @@
 #include <franka_hw/franka_state_interface.h>
 #include <realtime_tools/realtime_publisher.h>
 #include <serl_franka_controllers/ZeroJacobian.h>
-#include <franka_msgs/FrankaDebug.h>
 
 namespace serl_franka_controllers {
-    // TODO:change to `serl_franka_controllers`
 
 class CartesianImpedanceController : public controller_interface::MultiInterfaceController<
                                                 franka_hw::FrankaModelInterface,
@@ -56,32 +54,18 @@ class CartesianImpedanceController : public controller_interface::MultiInterface
   Eigen::Matrix<double, 6, 6> cartesian_stiffness_target_;
   Eigen::Matrix<double, 6, 6> cartesian_damping_;
   Eigen::Matrix<double, 6, 6> cartesian_damping_target_;
-  Eigen::Matrix<double, 6, 6> Ki;
+  Eigen::Matrix<double, 6, 6> Ki_;
   Eigen::Matrix<double, 6, 6> Ki_target_;
-  double translational_clip_neg_x;
-  double translational_clip_neg_y;
-  double translational_clip_neg_z;
-  double translational_clip_x;
-  double translational_clip_y;
-  double translational_clip_z;
-  double rotational_clip_x;
-  double rotational_clip_y;
-  double rotational_clip_z;
-  double rotational_clip_neg_x;
-  double rotational_clip_neg_y;
-  double rotational_clip_neg_z;
-  Eigen::Matrix<double, 3, 1> translational_clip_min;
-  Eigen::Matrix<double, 3, 1> translational_clip_max;
-  Eigen::Matrix<double, 3, 1> rotational_clip_min;
-  Eigen::Matrix<double, 3, 1> rotational_clip_max;
-  double rotational_clip;
+
+  // Created from the input parameters
+  Eigen::Matrix<double, 3, 1> translational_clip_min_;
+  Eigen::Matrix<double, 3, 1> translational_clip_max_;
+  Eigen::Matrix<double, 3, 1> rotational_clip_min_;
+  Eigen::Matrix<double, 3, 1> rotational_clip_max_;
   Eigen::Matrix<double, 7, 1> q_d_nullspace_;
-  Eigen::Matrix<double, 7, 1> qe;
-  Eigen::Matrix<double, 7, 1> dqe;
   Eigen::Vector3d position_d_;
-  Eigen::Matrix<double, 6, 1> error;
+  Eigen::Matrix<double, 6, 1> error_;
   Eigen::Matrix<double, 6, 1> error_i;
-  Eigen::Vector3d position; 
   Eigen::Quaterniond orientation_d_;
   Eigen::Vector3d position_d_target_;
   Eigen::Quaterniond orientation_d_target_;
