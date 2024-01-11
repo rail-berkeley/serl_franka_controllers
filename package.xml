@@ -4,7 +4,7 @@
   <version>0.1.0</version>
   <description>serl_franka_controllers provides a compliant yet accurate Cartesian impedance controller for controlling Franka Emika research robots that can be used in online reinforcement learning applications </description>
   <maintainer email="xuc@berkeley.edu">Charles Xu</maintainer>
-  <license>Apache 2.0</license>
+  <license>MIT</license>
 
   <url type="website">https://serl-robot.github.io/</url>
   <url type="repository">https://github.com/rail-berkeley/serl_franka_controllers/</url>
