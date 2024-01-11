@@ -1,10 +1,10 @@
-# SERL Franka Controller
+# SERL Franka Controllers
 
 > Robot controller used in SERL (A Software Suite for Sample-Efficient Robotic Reinforcement Learning)
 
 Serl Website and Paper: https://serl-robot.github.io/
 
-`serl_franka_controller` is a ROS package designed to control Franka Emika Robot through `libfranka` and `franka_ros`. This package provides a compliant yet accurate Cartesian Impedance Controller for safe online reinforcement learning algorithms, as well as a Joint Position Controller for resetting arm. 
+`serl_franka_controllers` is a ROS package designed to control Franka Emika Robot through `libfranka` and `franka_ros`. This package provides a compliant yet accurate Cartesian Impedance Controller for safe online reinforcement learning algorithms, as well as a Joint Position Controller for resetting arm. 
 
 Compliance and accuracy is achieved at the same time by limiting the reference point of the Impedance controller to be within a certain distance from the current pose in the realtime loop. This way, a high gain can be used for accuracy without excess force when in contact.
 
@@ -25,9 +25,9 @@ Compliance and accuracy is achieved at the same time by limiting the reference p
 1. Clone the repository into your catkin workspace:
    ```bash
    cd ~/catkin_ws/src
-   git clone git@github.com:rail-berkeley/serl_franka_controller.git
+   git clone git@github.com:rail-berkeley/serl_franka_controllers.git
    cd ~/catkin_ws
-   catkin_make --pkg serl_franka_controller
+   catkin_make --pkg serl_franka_controllers
    source ~/catkin_ws/devel/setup.bash
    ```
 
