@@ -7,7 +7,7 @@
   <license>Apache 2.0</license>
 
   <url type="website">https://serl-robot.github.io/</url>
-  <url type="repository">https://github.com/rail-berkeley/serl_franka_controller/</url>
+  <url type="repository">https://github.com/rail-berkeley/serl_franka_controllers/</url>
   <author>Jianlan Luo, Charles Xu</author>
 
   <buildtool_depend>catkin</buildtool_depend>
