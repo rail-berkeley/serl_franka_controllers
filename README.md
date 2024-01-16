@@ -20,6 +20,11 @@ Compliance and accuracy is achieved at the same time by limiting the reference p
   sudo apt install ros-noetic-libfranka ros-noetic-franka-ros
   ```
 
+### Installing via apt-get
+```bash
+sudo apt-get install ros-serl_franka_controllers
+```
+
 ### Installing from Source
 
 1. Clone the repository into your catkin workspace:
