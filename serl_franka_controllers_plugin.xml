@@ -1,0 +1,12 @@
+<library path="lib/libserl_franka_controllers">
+  <class name="serl_franka_controllers/JointPositionController" type="serl_franka_controllers::JointPositionController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      A controller that executes a short motion based on joint positions to demonstrate correct usage
+    </description>
+  </class>
+  <class name="serl_franka_controllers/CartesianImpedanceController" type="serl_franka_controllers::CartesianImpedanceController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      A controller that renders a spring damper system in cartesian space. Compliance parameters and the equilibrium pose can be modified online with dynamic reconfigure and an interactive marker respectively.
+    </description>
+  </class>
+</library>
