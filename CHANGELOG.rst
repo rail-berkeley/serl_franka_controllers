@@ -2,8 +2,8 @@
 Changelog for package serl_franka_controllers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.1 (2024-02-06)
+------------------
 * add installation instruction
 * Update package.xml license
 * Merge pull request `#3 <https://github.com/rail-berkeley/serl_franka_controllers/issues/3>`_ from rail-berkeley/release-bloom
