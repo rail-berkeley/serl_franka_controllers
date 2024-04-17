@@ -26,15 +26,20 @@ sudo apt-get install ros-serl_franka_controllers
 ```
 
 ### Installing from Source
+```bash
+cd ~/catkin_ws/src
+git clone git@github.com:rail-berkeley/serl_franka_controllers.git
+cd ~/catkin_ws
+catkin_make --pkg serl_franka_controllers
+source ~/catkin_ws/devel/setup.bash
+```
 
-1. Clone the repository into your catkin workspace:
-   ```bash
-   cd ~/catkin_ws/src
-   git clone git@github.com:rail-berkeley/serl_franka_controllers.git
-   cd ~/catkin_ws
-   catkin_make --pkg serl_franka_controllers
-   source ~/catkin_ws/devel/setup.bash
-   ```
+### Realtime Constraint
+The `franka_ros` requires a realtime kernel by default. This is not possible if you want to install CUDA on the same machine. A workaround is to ignore the realtime constraint in `catkin_ws/src/franka_ros/franka_control/config/franka_control_node.yaml`
+```yaml
+realtime_config: ignore
+```
+
 
 ## Usage
 
